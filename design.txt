@@ -1,0 +1,28 @@
+-- Database Design
+Table meals {
+  recipe_name varchar [primary key]
+  recripe_description varchar
+  date_added timestamp
+  primary_protein varchar
+  category varchar
+  vegitarian bool
+}
+
+Table recipes {
+  recipe_name varchar [primary key]
+  ingredients JSON
+  instructions text
+  portions integer
+}
+
+Table nutrition {
+  item varchar
+  amount float
+  units varchar
+  unit_type varchar
+  calories float
+  fat float
+  protein float
+  carbs float
+  fiber float
+}
