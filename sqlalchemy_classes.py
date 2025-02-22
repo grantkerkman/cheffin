@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, String, Integer, Float, Boolean, Text, TIMESTAMP
+from sqlalchemy import Column, String, Integer, Float, Boolean, Text
 from sqlalchemy.dialects.sqlite import JSON
 from sqlalchemy.orm import declarative_base
 
@@ -11,19 +11,13 @@ class Meal(Base):
 
     recipe_name = Column(String, primary_key=True)
     recipe_description = Column(Text)
-    date_added = Column(TIMESTAMP)
-    primary_protein = Column(String)
     category = Column(String)
-    vegetarian = Column(Boolean)
-
-# Recipes Table
-class Recipe(Base):
-    __tablename__ = "recipes"
-
-    recipe_name = Column(String, primary_key=True)
+    region = Column(String)
     ingredients = Column(JSON)
     instructions = Column(Text)
     portions = Column(Integer)
+    vegetarian = Column(Boolean)
+
 
 # Nutrition Table
 class Nutrition(Base):
@@ -41,3 +35,4 @@ class Nutrition(Base):
 
 # Database URL
 DATABASE_URL = "sqlite:///cheffin.db"
+
